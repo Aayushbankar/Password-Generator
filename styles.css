@@ -1,0 +1,92 @@
+/* Reset and general styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.password-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background: #f9f9f9;
+}
+
+.password-box input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    margin-right: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.password-box input:focus {
+    outline: none;
+}
+
+.password-box button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.password-box button:hover {
+    background-color: #0056b3;
+}
+
+.generate-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.generate-btn:hover {
+    background-color: #218838;
+}

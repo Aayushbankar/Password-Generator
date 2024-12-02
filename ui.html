@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+        /* Reset and general styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .password-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            background: #f9f9f9;
+        }
+
+        .password-box input {
+            border: none;
+            background: transparent;
+            width: 100%;
+            margin-right: 10px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .password-box input:focus {
+            outline: none;
+        }
+
+        .password-box button {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .password-box button:hover {
+            background-color: #0056b3;
+        }
+
+        .generate-btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .generate-btn:hover {
+            background-color: #218838;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Password Generator</h1>
+        <form action="logic.php" method="GET" class="password-form">
+            <!-- Input for password length -->
+            <label for="length">Password Length:</label>
+            <input type="number" id="length" name="length" value="<?php echo $pass_len; ?>" min="6" max="20" required>
+
+            <p>Click the button below to generate a secure password:</p>
+            <div class="password-box">
+                <!-- Display generated password in the input field -->
+                <input 
+                    type="text" 
+                    id="password" 
+                    name="password" 
+                    value="<?php echo $password; ?>" 
+                    readonly
+                >
+                <button type="button" id="copy-btn" onclick="copyPassword()">Copy</button>
+            </div>
+            <button type="submit" class="generate-btn">Generate Password</button>
+        </form>
+    
+    </div>
+
+    <div class="footer">
+        <p>Created by <a href="https://www.linkedin.com/in/aayush-bankar/" target="_blank">Aayush Bankar</a></p>
+    </div>
+
+    <script>
+        function copyPassword() {
+            const passwordField = document.getElementById("password");
+            passwordField.select();
+            passwordField.setSelectionRange(0, 99999); // For mobile devices
+            navigator.clipboard.writeText(passwordField.value).then(() => {
+                alert("Password copied to clipboard!");
+            });
+        }
+    </script>
+</body>
+</html>
